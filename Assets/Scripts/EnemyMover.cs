@@ -15,6 +15,9 @@ public class EnemyMover : MonoBehaviour {
 	void Start () {
 		_state = EnemyState.Normal;
 		float thisSpeed = Random.Range(speedMin, speedMax);
+		if (Cardboard.SDK.VRModeEnabled) { 
+			thisSpeed *= 0.85f; 
+		}
 		this.GetComponent<Rigidbody>().velocity = transform.forward * thisSpeed;
 	}
 	

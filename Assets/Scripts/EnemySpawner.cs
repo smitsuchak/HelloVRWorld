@@ -26,6 +26,9 @@ public class EnemySpawner : MonoBehaviour {
 	
 	void SetNextLaunch() {
 		float launchInterval = Random.Range(launchRangeMinTime, launchRangeMaxTime);
+		if (Cardboard.SDK.VRModeEnabled) { 
+			launchInterval *= 1.1f;
+		}
 		_nextLaunchTime = Time.time + launchInterval;
 	}
 	
